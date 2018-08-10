@@ -1,0 +1,25 @@
+{
+    "name": "wccplatform/phalapi-pdf",
+    "description": "PHP pdf处理，专门用于PhalApi 2.x 开源接口框架。",
+    "keywords": ["pdf", "phalapi"],
+    "version": "dev-master",
+    "homepage": "http://www.phalapi.net",
+    "license" : "GPL-3.0+",
+    "authors": [
+        {
+            "name": "tcpdf",
+            "email": "",
+            "homepage" : "https://tcpdf.org/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "wccplatform\\phalapiPdf\\": "src"
+        }
+    }
+
+}

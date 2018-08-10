@@ -7,8 +7,8 @@
     "license" : "GPL-3.0+",
     "authors": [
         {
-            "name": "tcpdf",
-            "email": "",
+            "name": "Nicola Asuni",
+            "email": "info@tecnick.com",
             "homepage" : "https://tcpdf.org/",
             "role": "Developer"
         }

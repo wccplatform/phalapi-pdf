@@ -1,4 +1,5 @@
 <?php
+
 namespace wccplatform\phalapiPdf;
 
 /** PHPPdf root directory */
@@ -7,7 +8,8 @@ if (!defined('PHPPDF_ROOT')) {
     require(PHPPDF_ROOT . 'tcpdf/tcpdf.php');
 }
 
-class Lite {
+class Lite
+{
 
     public $pdf;
 
@@ -16,7 +18,8 @@ class Lite {
         $this->pdf = new \TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     }
 
-    public function getInstance() {
+    public function getInstance()
+    {
 
         $this->pdf->SetCreator(PDF_CREATOR);
         $this->pdf->SetAuthor("WCC");
@@ -28,11 +31,12 @@ class Lite {
         $this->pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
         $this->pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-
+//        $this->pdf->Ln(4);
         return $this->pdf;
     }
 
-    public function exportPdf($file_name,$title,$html) {
+    public function exportPdf($file_name, $title, $html)
+    {
 
         $pdf = $this->getInstance();
         $pdf->SetTitle($title);
@@ -40,25 +44,23 @@ class Lite {
         $pdf->setHeaderFont(Array(
             "stsongstdlight",
             "",
-            16
+            10
         ));
 
         $pdf->setFooterFont(Array(
             "stsongstdlight",
             "",
-            14
+            8
         ));
 
-        $pdf->SetHeaderData("", 0, '测试', "销售出库单");
+        $pdf->SetHeaderData("", 0, date('Y/m/d'), '');
 
-        $pdf->SetFont("stsongstdlight", "", 10);
+        $pdf->SetFont("stsongstdlight", "", '10');
         $pdf->AddPage();
-
-        $pdf->writeHTML($html);
 
         $pdf->writeHTML($html, true, false, true, false, '');
 
         ob_end_clean();
-        $pdf->Output($file_name.'.pdf', "I");
+        $pdf->Output($file_name . '.pdf', "I");
     }
 }

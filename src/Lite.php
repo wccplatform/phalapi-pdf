@@ -20,7 +20,6 @@ class Lite
 
     public function getInstance()
     {
-
         $this->pdf->SetCreator(PDF_CREATOR);
         $this->pdf->SetAuthor("WCC");
 
@@ -42,20 +41,20 @@ class Lite
         $pdf->SetTitle($title);
 
         $pdf->setHeaderFont(Array(
-            "stsongstdlight",
+            "msyh",
             "",
             10
         ));
 
         $pdf->setFooterFont(Array(
-            "stsongstdlight",
+            "msyh",
             "",
             8
         ));
 
         $pdf->SetHeaderData("", 0, date('Y/m/d'), '');
 
-        $pdf->SetFont("stsongstdlight", "", '10');
+        $pdf->SetFont("msyh", "", '10');
         $pdf->AddPage();
 
         $pdf->writeHTML($html, true, false, true, false, '');
